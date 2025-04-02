@@ -12,192 +12,395 @@ export const BLOCK = "BLOCK";
 export const KERAMIKA = "KERAMIKA";
 export const ANY = "ANY";
 
-export const GJEL = 'GJEL'
-export const POROTERM = 'POROTERM'
+export const GJEL = "GJEL";
+export const POROTERM = "POROTERM";
 export const sizes = {
-    '8': {
-        GJEL: {
-            perPal: 72,
-            perCar: 1056,
-            price: 0,
-        },
-        POROTERM: {
-            perPal: 120,
-            perCar: 2640,
-            price: 83.61
-        }
+  8: {
+    GJEL: {
+      perPal: 72,
+      perCar: 1056,
+      price: 0,
     },
-    '12': {
-        GJEL: {
-            perPal: 72,
-            perCar: 1056,
-            price: 122.80,
-        },
-        POROTERM: {
-            perPal: 80,
-            perCar: 1760,
-            price: 125.15,
-        }
+    POROTERM: {
+      perPal: 120,
+      perCar: 2640,
+      price: 83.61,
     },
-    '20': {
-        GJEL: {
-            perPal: 72,
-            perCar: 1056,
-            price: 128.33,
-        },
-        POROTERM: {
-            perPal: 72,
-            perCar: 1368,
-            price: 150.20,
-        }
+  },
+  12: {
+    GJEL: {
+      perPal: 72,
+      perCar: 1056,
+      price: 122.8,
     },
-    '25': {
-        GJEL: {
-            perPal: 72,
-            perCar: 1056,
-            price: 148.00,
-        },
-        POROTERM: {
-            perPal: 60,
-            perCar: 1320,
-            price: 158.74,
-        }
+    POROTERM: {
+      perPal: 80,
+      perCar: 1760,
+      price: 125.15,
     },
-    '38t': {
-        GJEL: {
-            perPal: 72,
-            perCar: 1056,
-            price: 166,
-        },
-        POROTERM: {
-            perPal: 60,
-            perCar: 1320,
-            price: 176.57,
-        }
+  },
+  20: {
+    GJEL: {
+      perPal: 72,
+      perCar: 1056,
+      price: 128.33,
     },
-    '38': {
-        GJEL: {
-            perPal: 72,
-            perCar: 1056,
-            price: 148,
-        },
-        POROTERM: {
-            perPal: 60,
-            perCar: 1320,
-            price: 142.19,
-        }
+    POROTERM: {
+      perPal: 72,
+      perCar: 1368,
+      price: 150.2,
     },
-    '44': {
-        GJEL: {
-            perPal: 48,
-            perCar: 1056,
-            price: 166,
-        },
-        POROTERM: {
-            perPal: 50,
-            perCar: 1100,
-            price: 161.55,
-        }
+  },
+  25: {
+    GJEL: {
+      perPal: 72,
+      perCar: 1056,
+      price: 148.0,
     },
-    '51': {
-        GJEL: {
-            perPal: 48,
-            perCar: 912,
-            price: 197,
-        },
-        POROTERM: {
-            perPal: 50,
-            perCar: 1100,
-            price: 197.97,
-        }
+    POROTERM: {
+      perPal: 60,
+      perCar: 1320,
+      price: 158.74,
     },
-}
+  },
+  "38t": {
+    GJEL: {
+      perPal: 72,
+      perCar: 1056,
+      price: 166,
+    },
+    POROTERM: {
+      perPal: 60,
+      perCar: 1320,
+      price: 176.57,
+    },
+  },
+  38: {
+    GJEL: {
+      perPal: 72,
+      perCar: 1056,
+      price: 148,
+    },
+    POROTERM: {
+      perPal: 60,
+      perCar: 1320,
+      price: 142.19,
+    },
+  },
+  44: {
+    GJEL: {
+      perPal: 48,
+      perCar: 1056,
+      price: 166,
+    },
+    POROTERM: {
+      perPal: 50,
+      perCar: 1100,
+      price: 161.55,
+    },
+  },
+  51: {
+    GJEL: {
+      perPal: 48,
+      perCar: 912,
+      price: 197,
+    },
+    POROTERM: {
+      perPal: 50,
+      perCar: 1100,
+      price: 197.97,
+    },
+  },
+};
 
 export const GLORY = "GLORY";
 export const radioLogisticType = [
-    { val: "MY", name: "Своя" },
-    { val: "GLORY", name: "Триумф" },
+  { val: "MY", name: "Своя" },
+  { val: "GLORY", name: "Триумф" },
 ];
 export const radioGloryDistance = [
-    { distance: "0", name: "0-30" },
-    { distance: "1", name: "31-45" },
-    { distance: "2", name: "45-60" },
-    { distance: "3", name: "61-90" },
-    { distance: "4", name: "91-120" },
+  { distance: "0", name: "0-30" },
+  { distance: "1", name: "31-45" },
+  { distance: "2", name: "45-60" },
+  { distance: "3", name: "61-90" },
+  { distance: "4", name: "91-120" },
 ];
 export const PRICEGLORY = {
-    truck: {
-        nal: [15700, 16700, 17700, 18700, 19700],
-        nds: [18840, 20040, 21240, 22440, 23640],
-    },
-    manipulator: {
-        nal: [15700, 16700, 17700, 18700, 19700],
-        nds: [18840, 20040, 21240, 22440, 23640],
-    },
-    hitch: {
-        nal: [21700, 22800, 25200, 26500, 28200],
-        nds: [23900, 26500, 28500, 30100, 32200],
-    },
+  truck: {
+    nal: [15700, 16700, 17700, 18700, 19700],
+    nds: [18840, 20040, 21240, 22440, 23640],
+  },
+  manipulator: {
+    nal: [15700, 16700, 17700, 18700, 19700],
+    nds: [18840, 20040, 21240, 22440, 23640],
+  },
+  hitch: {
+    nal: [21700, 22800, 25200, 26500, 28200],
+    nds: [23900, 26500, 28500, 30100, 32200],
+  },
 };
 export const PRICEBLOCK = {
-    SK: {
-        D400: {
-            [b20]: { wall: 7440, partition: 0, 50: 0 },
-            [b25]: { wall: 7440, partition: 0, 50: 0 },
-            [b35]: { wall: 0, partition: 0, 50: 0 },
-            [b50]: { wall: 0, partition: 0, 50: 0 },
-        },
-        D500: {
-            [b20]: { wall: 0, partition: 0, 50: 0 },
-            [b25]: { wall: 5472, partition: 5568, 50: 7440 },
-            [b35]: { wall: 5760, partition: 5664, 50: 7440 },
-            [b50]: { wall: 0, partition: 0, 50: 0 },
-        },
-        D600: {
-            [b20]: { wall: 0, partition: 0, 50: 0 },
-            [b25]: { wall: 0, partition: 0, 50: 0 },
-            [b35]: { wall: 5472, partition: 5568, 50: 0 },
-            [b50]: { wall: 5760, partition: 5664, 50: 0 },
-        },
+  SK: {
+    D400: {
+      [b20]: { wall: 7440, partition: 0, 50: 0 },
+      [b25]: { wall: 7440, partition: 0, 50: 0 },
+      [b35]: { wall: 0, partition: 0, 50: 0 },
+      [b50]: { wall: 0, partition: 0, 50: 0 },
     },
-    DZGI: {
-        D400: {
-            [b20]: { wall: 7344, partition: 0, 50: 0 },
-            [b25]: { wall: 7344, partition: 0, 50: 0 },
-            [b35]: { wall: 0, partition: 0, 50: 0 },
-            [b50]: { wall: 0, partition: 0, 50: 0 },
-        },
-        D500: {
-            [b20]: { wall: 0, partition: 0, 50: 0 },
-            [b25]: { wall: 5424, partition: 5520, 50: 7392 },
-            [b35]: { wall: 5616, partition: 5712, 50: 7392 },
-            [b50]: { wall: 0, partition: 0, 50: 0 },
-        },
-        D600: {
-            [b20]: { wall: 0, partition: 0, 50: 0 },
-            [b25]: { wall: 0, partition: 0, 50: 0 },
-            [b35]: { wall: 5424, partition: 5520, 50: 0 },
-            [b50]: { wall: 5616, partition: 5712, 50: 0 },
-        },
+    D500: {
+      [b20]: { wall: 0, partition: 0, 50: 0 },
+      [b25]: { wall: 5472, partition: 5568, 50: 7440 },
+      [b35]: { wall: 5760, partition: 5664, 50: 7440 },
+      [b50]: { wall: 0, partition: 0, 50: 0 },
     },
-    MY: {
-        D400: {
-            [b20]: { wall: 7152, partition: 0, 50: 0 },
-            [b25]: { wall: 7152, partition: 0, 50: 0 },
-            [b35]: { wall: 0, partition: 0, 50: 0 },
-            [b50]: { wall: 0, partition: 0, 50: 0 },
-        },
-        D500: {
-            [b20]: { wall: 0, partition: 0, 50: 0 },
-            [b25]: { wall: 5280, partition: 5376, 50: 7248 },
-            [b35]: { wall: 5472, partition: 5568, 50: 7248 },
-            [b50]: { wall: 0, partition: 0, 50: 0 },
-        },
-        D600: {
-            [b20]: { wall: 0, partition: 0, 50: 0 },
-            [b25]: { wall: 0, partition: 0, 50: 0 },
-            [b35]: { wall: 5280, partition: 5376, 50: 0 },
-            [b50]: { wall: 5472, partition: 5568, 50: 0 },
-        },
+    D600: {
+      [b20]: { wall: 0, partition: 0, 50: 0 },
+      [b25]: { wall: 0, partition: 0, 50: 0 },
+      [b35]: { wall: 5472, partition: 5568, 50: 0 },
+      [b50]: { wall: 5760, partition: 5664, 50: 0 },
     },
+  },
+  DZGI: {
+    D400: {
+      [b20]: { wall: 7344, partition: 0, 50: 0 },
+      [b25]: { wall: 7344, partition: 0, 50: 0 },
+      [b35]: { wall: 0, partition: 0, 50: 0 },
+      [b50]: { wall: 0, partition: 0, 50: 0 },
+    },
+    D500: {
+      [b20]: { wall: 0, partition: 0, 50: 0 },
+      [b25]: { wall: 5424, partition: 5520, 50: 7392 },
+      [b35]: { wall: 5616, partition: 5712, 50: 7392 },
+      [b50]: { wall: 0, partition: 0, 50: 0 },
+    },
+    D600: {
+      [b20]: { wall: 0, partition: 0, 50: 0 },
+      [b25]: { wall: 0, partition: 0, 50: 0 },
+      [b35]: { wall: 5424, partition: 5520, 50: 0 },
+      [b50]: { wall: 5616, partition: 5712, 50: 0 },
+    },
+  },
+  MY: {
+    D400: {
+      [b20]: { wall: 7152, partition: 0, 50: 0 },
+      [b25]: { wall: 7152, partition: 0, 50: 0 },
+      [b35]: { wall: 0, partition: 0, 50: 0 },
+      [b50]: { wall: 0, partition: 0, 50: 0 },
+    },
+    D500: {
+      [b20]: { wall: 0, partition: 0, 50: 0 },
+      [b25]: { wall: 5280, partition: 5376, 50: 7248 },
+      [b35]: { wall: 5472, partition: 5568, 50: 7248 },
+      [b50]: { wall: 0, partition: 0, 50: 0 },
+    },
+    D600: {
+      [b20]: { wall: 0, partition: 0, 50: 0 },
+      [b25]: { wall: 0, partition: 0, 50: 0 },
+      [b35]: { wall: 5280, partition: 5376, 50: 0 },
+      [b50]: { wall: 5472, partition: 5568, 50: 0 },
+    },
+  },
 };
+
+export const BRIDGES = [
+  {
+    id: 1210100,
+    name: "Перемычка брусковая Poritep D600 1200*100*250/1000 В3,5 ТУ",
+    density: "D600",
+    short: "1200*100*250/1000",
+    incoming: 600,
+    count: 0,
+    price: 700,
+    heft: "28,46",
+  },
+  {
+    id: 1215100,
+    name: "Перемычка брусковая Poritep D600 1200*150*250/1000 В3,5 ТУ",
+    density: "D600",
+    short: "1200*150*250/1000",
+    incoming: 878,
+    count: 0,
+    price: 1000,
+    heft: "42,19",
+  },
+  {
+    id: 1220100,
+    name: "Перемычка брусковая Poritep D600 1200*200*250/1000 В3,5 ТУ",
+    density: "D600",
+    short: "1200*200*250/1000",
+    incoming: 1168,
+    count: 0,
+    price: 1300,
+    heft: "55,92",
+  },
+  {
+    id: 1510700,
+    name: "Перемычка брусковая Poritep D600 1500*100*250/700 В3,5 ТУ",
+    density: "D600",
+    short: "1500*100*250/700",
+    incoming: 750,
+    count: 0,
+    price: 800,
+    heft: "35,46",
+  },
+  {
+    id: 1515700,
+    name: "Перемычка брусковая Poritep D600 1500*150*250/700 B3,5 ТУ",
+    density: "D600",
+    short: "1500*150*250/700",
+    incoming: 1097,
+    count: 0,
+    price: 1200,
+    heft: "52,19",
+  },
+  {
+    id: 1520700,
+    name: "Перемычка брусковая Poritep D600 1500*200*250/700 B3,5 ТУ",
+    density: "D600",
+    short: "1500*200*250/700",
+    incoming: 1463,
+    count: 0,
+    price: 1600,
+    heft: "68,92",
+  },
+  {
+    id: 1520325,
+    name: "Перемычка брусковая Poritep D600 1500*200*250/3250 В3,5 ТУ",
+    density: "D600",
+    short: "1500*200*250/3250",
+    incoming: 1688,
+    count: 0,
+    price: 1800,
+    heft: "72,92",
+  },
+  {
+    id: 1530325,
+    name: "Перемычка брусковая Poritep D600 1500*300*250/3250 В3,5 ТУ",
+    density: "D600",
+    short: "1500*300*250/3250",
+    incoming: 2531,
+    count: 0,
+    price: 2700,
+    heft: "107,38",
+  },
+  {
+    id: 2010400,
+    name: "Перемычка брусковая Poritep D600 2000*100*250/400 B3,5 ТУ",
+    density: "D600",
+    short: "2000*100*250/400",
+    incoming: 1000,
+    count: 0,
+    price: 1100,
+    heft: "47,92",
+  },
+  {
+    id: 2015400,
+    name: "Перемычка брусковая Poritep D600 2000*150*250/400 В3,5 ТУ",
+    density: "D600",
+    short: "2000*150*250/400",
+    incoming: 1463,
+    count: 0,
+    price: 1600,
+    heft: "71,38",
+  },
+  {
+    id: 2020800,
+    name: "Перемычка брусковая Poritep D600 2000*200*250/1800 В3,5 ТУ",
+    density: "D600",
+    short: "2000*200*250/1800",
+    incoming: 2250,
+    count: 0,
+    price: 2400,
+    heft: "98,83",
+  },
+  {
+    id: 2020400,
+    name: "Перемычка брусковая Poritep D600 2000*200*250/400 В3,5 ТУ",
+    density: "D600",
+    short: "2000*200*250/400",
+    incoming: 1950,
+    count: 0,
+    price: 2100,
+    heft: "94,83",
+  },
+  {
+    id: 2030185,
+    name: "Перемычка брусковая Poritep D600 2000*300*250/1850 В3,5 ТУ",
+    density: "D600",
+    short: "2000*300*250/1850",
+    incoming: 3375,
+    count: 0,
+    price: 3500,
+    heft: "145,75",
+  },
+  {
+    id: 2515350,
+    name: "Перемычка брусковая Poritep D600 2500*150*250/350 В3,5 ТУ",
+    density: "D600",
+    short: "2500*150*250/350",
+    incoming: 1828,
+    count: 0,
+    price: 2000,
+    heft: "88,38",
+  },
+  {
+    id: 2520110,
+    name: "Перемычка брусковая Poritep D600 2500*200*250/1100 В3,5 ТУ",
+    density: "D600",
+    short: "2500*200*250/1100",
+    incoming: 2813,
+    count: 0,
+    price: 3000,
+    heft: "121,83",
+  },
+  {
+    id: 2520350,
+    name: "Перемычка брусковая Poritep D600 2500*200*250/350 В3,5 ТУ",
+    density: "D600",
+    short: "2500*200*250/350",
+    incoming: 2438,
+    count: 0,
+    price: 2600,
+    heft: "121,83",
+  },
+  {
+    id: 2530150,
+    name: "Перемычка брусковая Poritep D600 2500*300*250/1500 В3,5 ТУ",
+    density: "D600",
+    short: "2500*300*250/1500",
+    incoming: 4219,
+    count: 0,
+    price: 4300,
+    heft: "180,75",
+  },
+  {
+    id: 3015300,
+    name: "Перемычка брусковая Poritep D600 3000*150*250/300 В3,5 ТУ",
+    density: "D600",
+    short: "3000*150*250/300",
+    incoming: 2194,
+    count: 0,
+    price: 2300,
+    heft: "104,38",
+  },
+  {
+    id: 3020750,
+    name: "Перемычка брусковая Poritep D600 3000*200*250/750 В3,5 ТУ",
+    density: "D600",
+    short: "3000*200*250/750",
+    incoming: 3375,
+    count: 0,
+    price: 3500,
+    heft: "144,83",
+  },
+  {
+    id: 3030100,
+    name: "Перемычка брусковая Poritep D600 3000*300*250/1000 B3,5 ТУ",
+    density: "D600",
+    short: "3000*300*250/1000",
+    incoming: 5063,
+    count: 0,
+    price: 5200,
+    heft: "215,75",
+  },
+];

@@ -52,6 +52,7 @@ let copyResult = () => {
 };
 
 const PERSENTS = [
+  { value: 1.12, color: "outline-success", text: "+12" },
   { value: 1.09, color: "outline-success", text: "+9" },
   { value: 1.07, color: "outline-success", text: "+7" },
   { value: 1.05, color: "outline-success", text: "+5" },
@@ -305,8 +306,80 @@ function App() {
 
     return rows;
   };
-  const printTotal = () => {
+  const printRows = () => {
     debugger;
+    let res = "";
+    res = result.rows.map((i, key) => {
+      let string = "";
+      if (i.lenght !== "500") {
+        debugger;
+        if (variant === 0) {
+          string = (
+            <>
+              <li key={key ** 4}>
+                Bonolit {i.density} {i.lenght}x{i.width}x{i.height} {i.strength}{" "}
+                F100 ГОСТ 31360
+              </li>
+              <li key={key ** 5}>
+                {i.volume} м3 * {i.priceView} ₽ - {i.priceVxV} ₽
+              </li>
+            </>
+          );
+        } else if (variant === 1) {
+          string = (
+            <li key={key ** 6}>
+              {i.density} {i.lenght}x{i.width}x{i.height} {i.strength} -{" "}
+              {i.volume} м3 * {i.priceView} ₽ - {i.priceVxV} ₽
+            </li>
+          );
+        } else if (variant === 2) {
+          debugger;
+          string = (
+            <>
+              <li className="mb-0" key={key ** 1}>
+                {i.density} {i.lenght}x{i.width}x{i.height} {i.strength}
+              </li>
+              <li className="mb-0" key={key ** 2}>
+                {i.pallet} под. по {step} м3 ({i.thing} шт)
+              </li>
+              <li className="mb-0" key={key ** 3}>
+                {i.volume} м3 * {i.priceView} ₽ - {i.priceVxV} ₽
+              </li>
+            </>
+          );
+        }
+      } else if (variant === 3) {
+        debugger;
+        string = (
+          <>
+            <li className="mb-0" key={key ** 1}>
+              {i.density} {i.lenght}x{i.width}x{i.height} {i.strength}
+            </li>
+            <li className="mb-0" key={key ** 2}>
+              {i.pallet} под. по {step} м3 ({i.thing} шт)
+            </li>
+            <li className="mb-0" key={key ** 3}>
+              {i.volume} м3 * {i.priceView} ₽ - {i.priceVxV} ₽
+            </li>
+          </>
+        );
+      } else if (variant === 4) {
+        debugger;
+        string = <></>;
+      } else {
+        string = (
+          <li key={key}>
+            U- блок {D500} {i.lenght}x{i.width}x{i.height} - {i.thing} шт *{" "}
+            {i.priceView} ₽ - {i.priceVxV} ₽
+          </li>
+        );
+      }
+      return string;
+    });
+    return res;
+  };
+
+  const printTotal = () => {
     let total;
     total = result.rows.reduce((acc, row) => {
       return (acc += +row.priceVxV);
@@ -519,7 +592,7 @@ function App() {
         />
         <div className="mb-2">
           <ButtonGroup className="w-100">
-            {["Вид 1", "Мин", "Полный", "3 строки"].map((val, idx) => (
+            {["Полный", "Мин", "3 строки", "Вход"].map((val, idx) => (
               <ToggleButton
                 key={idx}
                 id={`rvVariant-${idx}`}
@@ -536,71 +609,7 @@ function App() {
           </ButtonGroup>
         </div>
         <div className="result text-start">
-          {result.rows.map((i, key) => {
-            let string;
-            if (i.lenght !== "500") {
-              debugger;
-              if (variant === 0) {
-                string = (
-                  <>
-                    <li key={key}>
-                      Bonolit {i.density} {i.lenght}x{i.width}x{i.height}{" "}
-                      {i.strength} F100 ГОСТ 31360
-                    </li>
-                    <li>
-                      {i.volume} м3 * {i.priceView} ₽ - {i.priceVxV} ₽
-                    </li>
-                  </>
-                );
-              } else if (variant === 1) {
-                string = (
-                  <li key={key}>
-                    {i.density} {i.lenght}x{i.width}x{i.height} {i.strength} -{" "}
-                    {i.volume} м3 * {i.priceView} ₽ - {i.priceVxV} ₽
-                  </li>
-                );
-              } else if (variant === 2) {
-                debugger;
-                string = (
-                  <>
-                    <li className="mb-0" key={key ** 1}>
-                      {i.density} {i.lenght}x{i.width}x{i.height} {i.strength}
-                    </li>
-                    <li className="mb-0" key={key ** 2}>
-                      {i.pallet} под. по {step} м3 ({i.thing} шт)
-                    </li>
-                    <li className="mb-0" key={key ** 3}>
-                      {i.volume} м3 * {i.priceView} ₽ - {i.priceVxV} ₽
-                    </li>
-                  </>
-                );
-              }
-            } else if (variant === 3) {
-              debugger;
-              string = (
-                <>
-                  <li className="mb-0" key={key ** 1}>
-                    {i.density} {i.lenght}x{i.width}x{i.height} {i.strength}
-                  </li>
-                  <li className="mb-0" key={key ** 2}>
-                    {i.pallet} под. по {step} м3 ({i.thing} шт)
-                  </li>
-                  <li className="mb-0" key={key ** 3}>
-                    {i.volume} м3 * {i.priceView} ₽ - {i.priceVxV} ₽
-                  </li>
-                </>
-              );
-            } else {
-              string = (
-                <li key={key}>
-                  U- блок {D500} {i.lenght}x{i.width}x{i.height} - {i.thing} шт
-                  * {i.priceView} ₽ - {i.priceVxV} ₽
-                </li>
-              );
-            }
-            return string;
-          })}
-
+          {printRows()}
           {glayData.glay25 > 0 ? (
             <li>
               Клей bonolit 25 кг - {glayData.glay25} шт * {glayData.glay25Price}{" "}

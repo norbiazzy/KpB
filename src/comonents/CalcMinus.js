@@ -11,9 +11,9 @@ function CalcMinus(params) {
     percent,
     PERSENTS,
     cutEnd,
-  } = params
-  return (<>
-    <div>
+  } = params;
+  return (
+    <>
       <InputGroup className="mb-3">
         <InputGroup.Text id="formData-price">₽</InputGroup.Text>
         <Form.Control
@@ -44,11 +44,11 @@ function CalcMinus(params) {
         />
         <InputGroup.Text id="basic-addon1">%</InputGroup.Text>
       </InputGroup>
-    </div>
-    <div>
-      <ButtonGroup className="w-100 mb-2">
+
+      <div className="mb-2">
         {PERSENTS.map((btn, idx) => (
           <Button
+            className="me-1 mb-1"
             id={`btn-persent${idx}`}
             variant={btn.color}
             data-type="percent"
@@ -58,9 +58,8 @@ function CalcMinus(params) {
             {btn.text}
           </Button>
         ))}
-      </ButtonGroup>
-    </div>
-  </>
+      </div>
+    </>
   );
 }
 

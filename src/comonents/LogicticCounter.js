@@ -13,8 +13,8 @@ function LogicticCounter(params) {
     text,
   } = params;
   return (
-    <div className="d-flex">
-      <span className="w-50 text-start">{text}</span>
+    <div className="d-flex mb-1">
+      <span className="w-50 text-start d-flex align-items-center">{text}</span>
       <InputGroup>
         <Button
           variant="outline-secondary"

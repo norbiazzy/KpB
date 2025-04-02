@@ -1,5 +1,13 @@
 import React, { useEffect } from "react";
-import { ButtonGroup, Col, Row, ToggleButton } from "react-bootstrap";
+import {
+  Button,
+  ButtonGroup,
+  Col,
+  Modal,
+  Row,
+  ToggleButton,
+} from "react-bootstrap";
+import ModalBridge from "./ModalBridge";
 
 function BonolitBoot(params) {
   const {
@@ -86,25 +94,29 @@ function BonolitBoot(params) {
         </ButtonGroup>
       </div>
       <div>
+        {/* <Button variant="primary" onClick={handleShow}></Button> */}
         {radiosWight.map((row, i) => (
           <div>
             <ButtonGroup className="mb-1 w-100">
-              {row.map((val, idx) => (
-                <ToggleButton
-                  key={idx}
-                  id={`rw${i}-${idx}`}
-                  type="radio"
-                  variant={"primary"}
-                  name="width"
-                  value={val}
-                  checked={width === val}
-                  onChange={(e) => {
-                    handleBtn(e);
-                  }}
-                >
-                  {val}
-                </ToggleButton>
-              ))}
+              {row.map((val, idx) => {
+                if (i === 3 && idx === 2) return <ModalBridge />;
+                return (
+                  <ToggleButton
+                    key={idx}
+                    id={`rw${i}-${idx}`}
+                    type="radio"
+                    variant={"primary"}
+                    name="width"
+                    value={val}
+                    checked={width === val}
+                    onChange={(e) => {
+                      handleBtn(e);
+                    }}
+                  >
+                    {val}
+                  </ToggleButton>
+                );
+              })}
             </ButtonGroup>
           </div>
         ))}
