@@ -1,0 +1,11 @@
+.App {
+  margin: auto auto;
+  max-width: 500px;
+  text-align: center;
+}
+.App {
+  list-style: none;
+}
+.w-20 {width: 15% !important;}
+.max-w-15 {max-width: 15% !important;}
+
