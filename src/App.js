@@ -53,16 +53,29 @@ let copyResult = () => {
 
 const PERSENTS = [
   { value: 1.12, color: "outline-success", text: "+12" },
+  { value: 1.11, color: "outline-success", text: "+11" },
+  { value: 1.1, color: "outline-success", text: "+10" },
   { value: 1.09, color: "outline-success", text: "+9" },
+  { value: 1.08, color: "outline-success", text: "+8" },
   { value: 1.07, color: "outline-success", text: "+7" },
+  { value: 1.06, color: "outline-success", text: "+6" },
   { value: 1.05, color: "outline-success", text: "+5" },
   { value: 1.04, color: "outline-success", text: "+4" },
   { value: 1.03, color: "outline-success", text: "+3" },
+  { value: 1.02, color: "outline-success", text: "+2" },
+  { value: 1.01, color: "outline-success", text: "+1" },
   { value: 1, color: "outline-primary", text: "0" },
+  { value: 0.99, color: "outline-danger", text: "-1" },
+  { value: 0.98, color: "outline-danger", text: "-2" },
   { value: 0.97, color: "outline-danger", text: "-3" },
+  { value: 0.96, color: "outline-danger", text: "-4" },
   { value: 0.95, color: "outline-danger", text: "-5" },
+  { value: 0.94, color: "outline-danger", text: "-6" },
   { value: 0.93, color: "outline-danger", text: "-7" },
+  { value: 0.92, color: "outline-danger", text: "-8" },
+  { value: 0.91, color: "outline-danger", text: "-9" },
   { value: 0.9, color: "outline-danger", text: "-10" },
+  { value: 0.89, color: "outline-danger", text: "-11" },
   { value: 0.88, color: "outline-danger", text: "-12" },
 ];
 
@@ -222,6 +235,51 @@ function App() {
     e.preventDefault();
     const { name, value } = e.target;
     calcQuantity(name, value);
+  };
+
+  const cleanResult = () => {
+    setResult({ rows: [] });
+    setFormData({
+      volume: 0,
+      thing: 0,
+      pallet: 0,
+    });
+    setGlayData({
+      glay25: 0,
+      glayFoam: 0,
+      glay25Price: 350,
+      glayFoamPrice: 650,
+    });
+    setDataVehicles({
+      truckCount: 0,
+      truckPrice: 0,
+      truckText: "Доставка фурой:",
+      manipulatorCount: 0,
+      manipulatorPrice: 0,
+      manipulatorText: "Доставка манипулятором:",
+      hitchCount: 0,
+      hitchPrice: 0,
+      hitchText: "Доставка манипулятором с прицепом:",
+      unloadingCount: 0,
+      unloadingPrice: 0,
+      unloadingText: "Разгрузка:",
+      distance: "3",
+      typePrice: "nal",
+    });
+    // setStep(1.8);
+    // setTypeCalc(BLOCK);
+    // setFactory(DZGI);
+    // setDensity(D500);
+    // setLenght("600");
+    // setWidth("300");
+    // setTypeWall("wall");
+    // setHeight("250");
+    // setPercent(0.93);
+    // setStrength(b35);
+    // setFloat(0);
+    // setVariant(1);
+    // setPriceSrc(PRICEBLOCK[factory][density][strength][typeWall]);
+    // setPriceView(cutEnd(priceSrc * percent, float));
   };
 
   const handleInputChangePrice = (e) => {
@@ -401,7 +459,7 @@ function App() {
 
   useEffect(() => {
     setPriceView(cutEnd(priceSrc * percent, float));
-  }, [float, percent]);
+  }, [float, percent, priceSrc]);
 
   return (
     <Container className="App">
@@ -630,8 +688,11 @@ function App() {
           {printVehicles()}
           {printTotal()}
         </div>
-        <Button className="w-100" variant="warning" onClick={copyResult}>
+        <Button className="mb-1 w-100" variant="warning" onClick={copyResult}>
           Скопировать
+        </Button>
+        <Button className="mb-1 w-100" variant="danger" onClick={cleanResult}>
+          Очистить
         </Button>
       </div>
       <br />
