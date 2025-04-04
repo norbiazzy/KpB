@@ -4,8 +4,10 @@ import Bonolit from "./comonents/Bonolit";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Keramika from "./comonents/Keramika";
 import {
+  Accordion,
   Button,
   ButtonGroup,
+  Card,
   Col,
   Container,
   Form,
@@ -364,11 +366,32 @@ function App() {
 
     return rows;
   };
-  const printRows = () => {
+  const printRows = (copy) => {
     debugger;
     let res = "";
     res = result.rows.map((i, key) => {
       let string = "";
+      let a = (
+        <Accordion defaultActiveKey="0">
+          <Card>
+            <Card.Header>
+              <Button eventKey="0">Click me!</Button>
+            </Card.Header>
+            <Accordion.Collapse eventKey="0">
+              <Card.Body>Hello! I'm the body</Card.Body>
+            </Accordion.Collapse>
+          </Card>
+          <Card>
+            <Card.Header>
+              <Button eventKey="1">Click me!</Button>
+            </Card.Header>
+            <Accordion.Collapse eventKey="1">
+              <Card.Body>Hello! I'm another body</Card.Body>
+            </Accordion.Collapse>
+          </Card>
+        </Accordion>
+      );
+
       if (i.lenght !== "500") {
         debugger;
         if (variant === 0) {
@@ -381,6 +404,7 @@ function App() {
               <li key={key ** 5}>
                 {i.volume} м3 * {i.priceView} ₽ - {i.priceVxV} ₽
               </li>
+              {!copy ? a : ""}
             </>
           );
         } else if (variant === 1) {
@@ -435,6 +459,28 @@ function App() {
       return string;
     });
     return res;
+  };
+  const printGlay = () => {
+    let textGlay =
+      glayData.glay25 > 0 ? (
+        <li>
+          Клей bonolit 25 кг - {glayData.glay25} шт * {glayData.glay25Price} ₽ -{" "}
+          {cutEnd(glayData.glay25 * glayData.glay25Price, float)} ₽
+        </li>
+      ) : (
+        ""
+      );
+    let textGlayFoam =
+      glayData.glayFoam > 0 ? (
+        <li>
+          Клей-пена bonolit Формула-тепла - {glayData.glayFoam} шт *{" "}
+          {glayData.glayFoamPrice} ₽ -{" "}
+          {cutEnd(glayData.glayFoam * glayData.glayFoamPrice, float)} ₽
+        </li>
+      ) : (
+        ""
+      );
+    return textGlay + textGlayFoam;
   };
 
   const printTotal = () => {
@@ -668,23 +714,7 @@ function App() {
         </div>
         <div className="result text-start">
           {printRows()}
-          {glayData.glay25 > 0 ? (
-            <li>
-              Клей bonolit 25 кг - {glayData.glay25} шт * {glayData.glay25Price}{" "}
-              ₽ - {cutEnd(glayData.glay25 * glayData.glay25Price, float)} ₽
-            </li>
-          ) : (
-            ""
-          )}
-          {glayData.glayFoam > 0 ? (
-            <li>
-              Клей-пена bonolit Формула-тепла - {glayData.glayFoam} шт *{" "}
-              {glayData.glayFoamPrice} ₽ -{" "}
-              {cutEnd(glayData.glayFoam * glayData.glayFoamPrice, float)} ₽
-            </li>
-          ) : (
-            ""
-          )}
+          {printGlay()}
           {printVehicles()}
           {printTotal()}
         </div>
