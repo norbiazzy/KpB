@@ -34,6 +34,7 @@ import {
   KERAMIKA,
   ANY,
 } from "./files/const";
+import RowResult from "./comonents/RowResult";
 
 let cutEnd = (cell, numb = 2) => {
   let result = (+cell).toFixed(numb).toString();
@@ -54,30 +55,15 @@ let copyResult = () => {
 };
 
 const PERSENTS = [
-  { value: 1.12, color: "outline-success", text: "+12" },
-  { value: 1.11, color: "outline-success", text: "+11" },
-  { value: 1.1, color: "outline-success", text: "+10" },
-  { value: 1.09, color: "outline-success", text: "+9" },
-  { value: 1.08, color: "outline-success", text: "+8" },
-  { value: 1.07, color: "outline-success", text: "+7" },
-  { value: 1.06, color: "outline-success", text: "+6" },
   { value: 1.05, color: "outline-success", text: "+5" },
-  { value: 1.04, color: "outline-success", text: "+4" },
+  { value: 1.04, color: "success", text: "+4" },
   { value: 1.03, color: "outline-success", text: "+3" },
   { value: 1.02, color: "outline-success", text: "+2" },
-  { value: 1.01, color: "outline-success", text: "+1" },
-  { value: 1, color: "outline-primary", text: "0" },
-  { value: 0.99, color: "outline-danger", text: "-1" },
-  { value: 0.98, color: "outline-danger", text: "-2" },
+  { value: 1, color: "primary", text: "0" },
   { value: 0.97, color: "outline-danger", text: "-3" },
-  { value: 0.96, color: "outline-danger", text: "-4" },
   { value: 0.95, color: "outline-danger", text: "-5" },
-  { value: 0.94, color: "outline-danger", text: "-6" },
-  { value: 0.93, color: "outline-danger", text: "-7" },
-  { value: 0.92, color: "outline-danger", text: "-8" },
-  { value: 0.91, color: "outline-danger", text: "-9" },
+  { value: 0.93, color: "danger", text: "-7" },
   { value: 0.9, color: "outline-danger", text: "-10" },
-  { value: 0.89, color: "outline-danger", text: "-11" },
   { value: 0.88, color: "outline-danger", text: "-12" },
 ];
 
@@ -241,11 +227,11 @@ function App() {
 
   const cleanResult = () => {
     setResult({ rows: [] });
-    setFormData({
-      volume: 0,
-      thing: 0,
-      pallet: 0,
-    });
+    // setFormData({
+    //   volume: 0,
+    //   thing: 0,
+    //   pallet: 0,
+    // });
     setGlayData({
       glay25: 0,
       glayFoam: 0,
@@ -284,9 +270,46 @@ function App() {
     // setPriceView(cutEnd(priceSrc * percent, float));
   };
 
+  const handleInputEditRow = (e) => {
+    e.preventDefault();
+    let type = e.target.dataset.type;
+    let newRows = [];
+    if (e.target.dataset.row) {
+      let val = e.target.value;
+      newRows = result.rows.map((el, i) => {
+        if (+e.target.dataset.row === +i) {
+          if (type === "price") {
+            return {
+              ...el,
+              priceSrc: val,
+              priceView: val,
+              priceVxV: cutEnd(
+                val * (el.lenght === "500" ? el.thing : el.volume),
+                2
+              ),
+              percent: 1,
+            };
+          } else if (type === "quantity") {
+            return {
+              ...el,
+              [el.lenght === "500" ? "thing" : "volume"]: val,
+              priceVxV: cutEnd(val * el.priceView, 2),
+            };
+          }
+        }
+        return el;
+      });
+    }
+    if (type === "delete") {
+      newRows = result.rows.filter((el, row) => row !== +e.target.dataset.row);
+    }
+    setResult({
+      ...result,
+      rows: newRows,
+    });
+  };
   const handleInputChangePrice = (e) => {
     e.preventDefault();
-    debugger;
     let price = e.target.value;
     setPriceSrc(price);
     setPriceView(cutEnd(price * percent, float));
@@ -332,7 +355,10 @@ function App() {
       height: height,
       priceSrc: priceSrc,
       priceView: priceView,
-      priceVxV: cutEnd(priceView * formData.volume, 2),
+      priceVxV: cutEnd(
+        priceView * (lenght === "500" ? formData.thing : formData.volume),
+        2
+      ),
       percent: percent,
       volume: formData.volume,
       pallet: formData.pallet,
@@ -365,100 +391,6 @@ function App() {
     );
 
     return rows;
-  };
-  const printRows = (copy) => {
-    debugger;
-    let res = "";
-    res = result.rows.map((i, key) => {
-      let string = "";
-      let a = (
-        <Accordion defaultActiveKey="0">
-          <Card>
-            <Card.Header>
-              <Button eventKey="0">Click me!</Button>
-            </Card.Header>
-            <Accordion.Collapse eventKey="0">
-              <Card.Body>Hello! I'm the body</Card.Body>
-            </Accordion.Collapse>
-          </Card>
-          <Card>
-            <Card.Header>
-              <Button eventKey="1">Click me!</Button>
-            </Card.Header>
-            <Accordion.Collapse eventKey="1">
-              <Card.Body>Hello! I'm another body</Card.Body>
-            </Accordion.Collapse>
-          </Card>
-        </Accordion>
-      );
-
-      if (i.lenght !== "500") {
-        debugger;
-        if (variant === 0) {
-          string = (
-            <>
-              <li key={key ** 4}>
-                Bonolit {i.density} {i.lenght}x{i.width}x{i.height} {i.strength}{" "}
-                F100 ГОСТ 31360
-              </li>
-              <li key={key ** 5}>
-                {i.volume} м3 * {i.priceView} ₽ - {i.priceVxV} ₽
-              </li>
-              {!copy ? a : ""}
-            </>
-          );
-        } else if (variant === 1) {
-          string = (
-            <li key={key ** 6}>
-              {i.density} {i.lenght}x{i.width}x{i.height} {i.strength} -{" "}
-              {i.volume} м3 * {i.priceView} ₽ - {i.priceVxV} ₽
-            </li>
-          );
-        } else if (variant === 2) {
-          debugger;
-          string = (
-            <>
-              <li className="mb-0" key={key ** 1}>
-                {i.density} {i.lenght}x{i.width}x{i.height} {i.strength}
-              </li>
-              <li className="mb-0" key={key ** 2}>
-                {i.pallet} под. по {step} м3 ({i.thing} шт)
-              </li>
-              <li className="mb-0" key={key ** 3}>
-                {i.volume} м3 * {i.priceView} ₽ - {i.priceVxV} ₽
-              </li>
-            </>
-          );
-        }
-      } else if (variant === 3) {
-        debugger;
-        string = (
-          <>
-            <li className="mb-0" key={key ** 1}>
-              {i.density} {i.lenght}x{i.width}x{i.height} {i.strength}
-            </li>
-            <li className="mb-0" key={key ** 2}>
-              {i.pallet} под. по {step} м3 ({i.thing} шт)
-            </li>
-            <li className="mb-0" key={key ** 3}>
-              {i.volume} м3 * {i.priceView} ₽ - {i.priceVxV} ₽
-            </li>
-          </>
-        );
-      } else if (variant === 4) {
-        debugger;
-        string = <></>;
-      } else {
-        string = (
-          <li key={key}>
-            U- блок {D500} {i.lenght}x{i.width}x{i.height} - {i.thing} шт *{" "}
-            {i.priceView} ₽ - {i.priceVxV} ₽
-          </li>
-        );
-      }
-      return string;
-    });
-    return res;
   };
   const printGlay = () => {
     let textGlay =
@@ -712,8 +644,14 @@ function App() {
             ))}
           </ButtonGroup>
         </div>
-        <div className="result text-start">
-          {printRows()}
+        <div className="text-start mb-2">
+          <RowResult
+            result={result}
+            variant={variant}
+            step={step}
+            copy={true}
+            handleInputEditRow={handleInputEditRow}
+          />
           {printGlay()}
           {printVehicles()}
           {printTotal()}
@@ -724,6 +662,18 @@ function App() {
         <Button className="mb-1 w-100" variant="danger" onClick={cleanResult}>
           Очистить
         </Button>
+      </div>
+      <div className="result text-start d-none">
+        <RowResult
+          result={result}
+          variant={variant}
+          step={step}
+          copy={false}
+          handleInputEditRow={handleInputEditRow}
+        />
+        {printGlay()}
+        {printVehicles()}
+        {printTotal()}
       </div>
       <br />
       <br />
