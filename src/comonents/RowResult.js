@@ -7,7 +7,6 @@ import {
   InputGroup,
   useAccordionButton,
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import { D500 } from "../files/const";
 
 function CustomToggle({ children, eventKey }) {

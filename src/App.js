@@ -662,18 +662,18 @@ function App() {
         <Button className="mb-1 w-100" variant="danger" onClick={cleanResult}>
           Очистить
         </Button>
-      </div>
-      <div className="result text-start d-none">
-        <RowResult
-          result={result}
-          variant={variant}
-          step={step}
-          copy={false}
-          handleInputEditRow={handleInputEditRow}
-        />
-        {printGlay()}
-        {printVehicles()}
-        {printTotal()}
+        <div className="result text-start color-transparent">
+          <RowResult
+            result={result}
+            variant={variant}
+            step={step}
+            copy={false}
+            handleInputEditRow={handleInputEditRow}
+          />
+          {printGlay()}
+          {printVehicles()}
+          {printTotal()}
+        </div>
       </div>
       <br />
       <br />
