@@ -150,14 +150,14 @@ export const PRICEBLOCK = {
     D500: {
       [b20]: { wall: 0, partition: 0, 50: 0 },
       [b25]: { wall: 5472, partition: 5568, 50: 7440 },
-      [b35]: { wall: 5760, partition: 5664, 50: 7440 },
+      [b35]: { wall: 5664, partition: 5760, 50: 7440 },
       [b50]: { wall: 0, partition: 0, 50: 0 },
     },
     D600: {
       [b20]: { wall: 0, partition: 0, 50: 0 },
       [b25]: { wall: 0, partition: 0, 50: 0 },
       [b35]: { wall: 5472, partition: 5568, 50: 0 },
-      [b50]: { wall: 5760, partition: 5664, 50: 0 },
+      [b50]: { wall: 5664, partition: 5760, 50: 0 },
     },
   },
   DZGI: {

@@ -662,7 +662,7 @@ function App() {
         <Button className="mb-1 w-100" variant="danger" onClick={cleanResult}>
           Очистить
         </Button>
-        <div className="result text-start color-transparent">
+        <div className="result text-start transparent">
           <RowResult
             result={result}
             variant={variant}

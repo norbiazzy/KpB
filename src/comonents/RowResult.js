@@ -99,7 +99,7 @@ function RowResult(params) {
     if (copy)
       return (
         <Card>
-          <Card.Header className="position-relative">
+          <Card.Header className="position-relative border-none background-none">
             {string}
             <CustomToggle className="position-absolute" eventKey={key}>
               ...

@@ -9,3 +9,6 @@
 .w-20 {width: 15% !important;}
 .max-w-15 {max-width: 15% !important;}
 
+.result {
+  color: transparent;
+}
