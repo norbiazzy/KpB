@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Col, Form, InputGroup, Row } from "react-bootstrap";
+import { Button, Form, InputGroup} from "react-bootstrap";
 
 function LogicticCounter(params) {
   const {
@@ -12,6 +12,7 @@ function LogicticCounter(params) {
     setVehiclesCount,
     text,
   } = params;
+
   return (
     <div className="d-flex mb-1">
       <span className="w-50 text-start d-flex align-items-center">{text}</span>
@@ -24,7 +25,7 @@ function LogicticCounter(params) {
         >
           -
         </Button>
-        <Form.Control 
+        <Form.Control
           placeholder="0"
           aria-label="Username"
           type="number"

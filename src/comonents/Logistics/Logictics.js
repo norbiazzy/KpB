@@ -2,8 +2,13 @@ import React, { useEffect, useState } from "react";
 import LogicticCounter from "./LogicticCounter";
 import { ButtonGroup, ToggleButton } from "react-bootstrap";
 
-import { MY, GLORY, radioLogisticType, radioGloryDistance, PRICEGLORY } from "../files/const";
-
+import {
+  MY,
+  GLORY,
+  radioLogisticType,
+  radioGloryDistance,
+  PRICEGLORY,
+} from "../../files/const";
 
 function Logictics(params) {
   const { dataVehicles, setDataVehicles } = params;

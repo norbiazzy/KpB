@@ -2,22 +2,24 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { BRIDGES } from "../files/const";
-import { Form, InputGroup } from "react-bootstrap";
+import { Form, InputGroup, ToggleButton } from "react-bootstrap";
 
 function ModalBridge() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const handleBtn = ()=>{
-
-  }
+  const handleBtn = () => {};
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <ToggleButton
+        variant="primary"
+        // style={{ borderRadius: "12px", border: "1px solid" }}
+        onClick={handleShow}
+      >
         ||
-      </Button>
+      </ToggleButton>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -61,7 +63,7 @@ function ModalBridge() {
                       placeholder="0"
                       aria-label="Username"
                       type="number"
-                      name={ "Price"}
+                      name={"Price"}
                       value={1}
                       aria-describedby="basic-vehiclesPrice"
                       onChange={1}

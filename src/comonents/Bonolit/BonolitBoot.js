@@ -7,7 +7,7 @@ import {
   Row,
   ToggleButton,
 } from "react-bootstrap";
-import ModalBridge from "./ModalBridge";
+import ModalBridge from "../ModalBridge";
 
 function BonolitBoot(params) {
   const {
@@ -32,7 +32,7 @@ function BonolitBoot(params) {
   } = params;
   const radiosDensity = ["D400", "D500", "D600"];
   const radiosLenght = ["500", "600", "625"];
-  const radiosWight = [
+  const radiosWidth = [
     ["400", "375", "350"],
     ["300", "250", "200"],
     ["150", "125", "100"],
@@ -94,8 +94,7 @@ function BonolitBoot(params) {
         </ButtonGroup>
       </div>
       <div>
-        {/* <Button variant="primary" onClick={handleShow}></Button> */}
-        {radiosWight.map((row, i) => (
+        {radiosWidth.map((row, i) => (
           <div>
             <ButtonGroup className="mb-1 w-100">
               {row.map((val, idx) => {

@@ -1,17 +1,28 @@
 import React from "react";
-import { Button, ButtonGroup, Form, InputGroup } from "react-bootstrap";
+import { Button, Form, InputGroup } from "react-bootstrap";
+import { cutEnd } from "../files/const";
 
-function CalcMinus(params) {
-  let {
-    priceSrc,
-    handleInputChangePrice,
-    setFloat,
-    float,
-    setPercent,
-    percent,
-    PERSENTS,
-    cutEnd,
-  } = params;
+const PERSENTS = [
+  { value: 1.05, color: "outline-success", text: "+5" },
+  { value: 1.04, color: "success", text: "+4" },
+  { value: 1.03, color: "outline-success", text: "+3" },
+  { value: 1.02, color: "outline-success", text: "+2" },
+  { value: 1, color: "primary", text: "0" },
+  { value: 0.97, color: "outline-danger", text: "-3" },
+  { value: 0.95, color: "outline-danger", text: "-5" },
+  { value: 0.93, color: "danger", text: "-7" },
+  { value: 0.9, color: "outline-danger", text: "-10" },
+  { value: 0.88, color: "outline-danger", text: "-12" },
+];
+
+function CalcMinus({
+  priceSrc,
+  handleInputChangePrice,
+  setFloat,
+  float,
+  setPercent,
+  percent,
+}) {
   return (
     <>
       <InputGroup className="mb-3">

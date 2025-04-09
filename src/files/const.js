@@ -114,6 +114,7 @@ export const sizes = {
 };
 
 export const GLORY = "GLORY";
+
 export const radioLogisticType = [
   { val: "MY", name: "Своя" },
   { val: "GLORY", name: "Триумф" },
@@ -158,6 +159,22 @@ export const PRICEBLOCK = {
       [b25]: { wall: 0, partition: 0, 50: 0 },
       [b35]: { wall: 5472, partition: 5568, 50: 0 },
       [b50]: { wall: 5664, partition: 5760, 50: 0 },
+    },
+    step: {
+      600400250: 2.16,
+      600375250: 1.8,
+      600350250: 1.68,
+      600300250: 1.8,
+      600300200: 1.8,
+      600250250: 1.8,
+      600200250: 1.8,
+      600250200: 1.8,
+      600200200: 1.44,
+      600150250: 1.8,
+      600125250: 1.8,
+      600100250: 1.8,
+      60075250: 1.8,
+      60050250: 1.8,
     },
   },
   DZGI: {
@@ -404,3 +421,22 @@ export const BRIDGES = [
     heft: "215,75",
   },
 ];
+
+export const cutEnd = (cell, numb = 2) => {
+  let result = (+cell).toFixed(numb).toString();
+  return +result;
+};
+
+export const copyResult = () => {
+  let textarea = document.createElement("textarea");
+  textarea.id = "temp";
+  textarea.style.height = 0;
+  document.body.appendChild(textarea);
+  let text;
+  textarea.value = document.querySelector(".result").innerText;
+  // textarea.value = bufferText;
+  let selector = document.querySelector("#temp");
+  selector.select();
+  document.execCommand("copy");
+  document.body.removeChild(textarea);
+};
