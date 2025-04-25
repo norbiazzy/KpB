@@ -150,15 +150,15 @@ export const PRICEBLOCK = {
     },
     D500: {
       [b20]: { wall: 0, partition: 0, 50: 0 },
-      [b25]: { wall: 5472, partition: 5568, 50: 7440 },
-      [b35]: { wall: 5664, partition: 5760, 50: 7440 },
+      [b25]: { wall: 5400, partition: 5400, 50: 7440 },
+      [b35]: { wall: 5500, partition: 5500, 50: 7440 },
       [b50]: { wall: 0, partition: 0, 50: 0 },
     },
     D600: {
       [b20]: { wall: 0, partition: 0, 50: 0 },
       [b25]: { wall: 0, partition: 0, 50: 0 },
-      [b35]: { wall: 5472, partition: 5568, 50: 0 },
-      [b50]: { wall: 5664, partition: 5760, 50: 0 },
+      [b35]: { wall: 5400, partition: 5400, 50: 0 },
+      [b50]: { wall: 5500, partition: 5500, 50: 0 },
     },
     step: {
       600400250: 2.16,
@@ -186,15 +186,15 @@ export const PRICEBLOCK = {
     },
     D500: {
       [b20]: { wall: 0, partition: 0, 50: 0 },
-      [b25]: { wall: 5424, partition: 5520, 50: 7392 },
-      [b35]: { wall: 5616, partition: 5712, 50: 7392 },
+      [b25]: { wall: 5400, partition: 5400, 50: 7392 },
+      [b35]: { wall: 5500, partition: 5712, 50: 7392 },
       [b50]: { wall: 0, partition: 0, 50: 0 },
     },
     D600: {
       [b20]: { wall: 0, partition: 0, 50: 0 },
       [b25]: { wall: 0, partition: 0, 50: 0 },
-      [b35]: { wall: 5424, partition: 5520, 50: 0 },
-      [b50]: { wall: 5616, partition: 5712, 50: 0 },
+      [b35]: { wall: 5400, partition: 5400, 50: 0 },
+      [b50]: { wall: 5500, partition: 5712, 50: 0 },
     },
   },
   MY: {
@@ -206,15 +206,15 @@ export const PRICEBLOCK = {
     },
     D500: {
       [b20]: { wall: 0, partition: 0, 50: 0 },
-      [b25]: { wall: 5280, partition: 5376, 50: 7248 },
-      [b35]: { wall: 5472, partition: 5568, 50: 7248 },
+      [b25]: { wall: 5300, partition: 5300, 50: 7248 },
+      [b35]: { wall: 5400, partition: 5400, 50: 7248 },
       [b50]: { wall: 0, partition: 0, 50: 0 },
     },
     D600: {
       [b20]: { wall: 0, partition: 0, 50: 0 },
       [b25]: { wall: 0, partition: 0, 50: 0 },
-      [b35]: { wall: 5280, partition: 5376, 50: 0 },
-      [b50]: { wall: 5472, partition: 5568, 50: 0 },
+      [b35]: { wall: 5300, partition: 5300, 50: 0 },
+      [b50]: { wall: 5400, partition: 5400, 50: 0 },
     },
   },
 };
