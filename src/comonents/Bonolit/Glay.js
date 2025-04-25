@@ -30,11 +30,9 @@ function Glay({ glayData, setGlayData, result }) {
   };
 
   const handleInputChangeGlay = (e) => {
-    e.preventDefault();
     const { name, value } = e.target;
     setGlayData({ ...glayData, [name]: value });
   };
-
   return (
     <div className="mb-3">
       <InputGroup className="mb-1">

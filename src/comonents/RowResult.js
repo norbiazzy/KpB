@@ -7,7 +7,7 @@ import {
   InputGroup,
   useAccordionButton,
 } from "react-bootstrap";
-import { D500 } from "../files/const";
+import { cutEnd, D500 } from "../files/const";
 
 function CustomToggle({ children, eventKey }) {
   const decoratedOnClick = useAccordionButton(eventKey, () =>
@@ -31,10 +31,11 @@ function CustomToggle({ children, eventKey }) {
 }
 
 function RowResult(params) {
-  let { result, copy, variant, step, handleInputEditRow } = params;
+  let { result, copy, variant, handleInputEditRow } = params;
 
   let res = "";
   res = result.rows.map((i, key) => {
+    debugger;
     let string = "";
 
     if (i.lenght !== "500") {
@@ -64,7 +65,7 @@ function RowResult(params) {
               {i.density} {i.lenght}x{i.width}x{i.height} {i.strength}
             </li>
             <li className="mb-0" key={key ** 2}>
-              {i.pallet} под. по {step} м3 ({i.thing} шт)
+              {cutEnd(i.volume / i.step, 2)} под. по {i.step} м3 ({i.thing} шт)
             </li>
             <li className="mb-0" key={key ** 3}>
               {i.volume} м3 * {i.priceView} ₽ - {i.priceVxV} ₽
@@ -78,7 +79,7 @@ function RowResult(params) {
               {i.density} {i.lenght}x{i.width}x{i.height} {i.strength}
             </li>
             <li className="mb-0" key={key ** 2}>
-              {i.pallet} под. по {step} м3 ({i.thing} шт)
+              {i.pallet} под. по {i.step} м3 ({i.thing} шт)
             </li>
             <li className="mb-0" key={key ** 3}>
               {i.volume} м3 * {i.priceView} ₽ - {i.priceVxV} ₽
@@ -109,7 +110,7 @@ function RowResult(params) {
             <Card.Body>
               <InputGroup>
                 <Form.Control
-                  placeholder={step}
+                  placeholder={i.step}
                   type="number"
                   name={"quantity-" + key}
                   data-row={key}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { GJEL, POROTERM, sizes } from "../files/const";
 import { ButtonGroup, ToggleButton } from "react-bootstrap";
+import CalcBtns from "./CalcBtns";
 
 const radiosSize = [
   ["51", "44", "38"],
@@ -8,19 +9,19 @@ const radiosSize = [
   ["12", "8", "2.1"],
 ];
 const radiosFactory = [
-  { val: GJEL, name: "Гжель" },
-  { val: POROTERM, name: "Поротерм" },
+  { value: GJEL, name: "Гжель" },
+  { value: POROTERM, name: "Поротерм" },
 ];
 
 function Keramika(params) {
   const [factory, setFactory] = useState(GJEL);
-  const [size, setSize] = useState(38);
+  const [size, setSize] = useState("38");
   const [formData, setFormData] = useState({});
 
   const handleBtn = (e) => {
-    const { dataset, value } = e.target;
-    if (dataset.type === "factory") setFactory(value);
-    if (dataset.type === "size") setSize(value);
+    const { name, value } = e.target;
+    if (name.type === "factory") setFactory(value);
+    if (name.type === "size") setSize(value);
     calcStep();
   };
   const calcStep = () => {};
@@ -28,11 +29,17 @@ function Keramika(params) {
   return (
     <div>
       <div>
+        {/* <CalcBtns
+          data={radiosFactory}
+          name="factory1"
+          curParam={factory}
+          handle={handleBtn}
+        /> */}
         <ButtonGroup className="mb-3 w-100">
           {radiosFactory.map((item, idx) => (
             <ToggleButton
               key={idx}
-              id={`rf-${idx}`}
+              id={`rfk-${idx}`}
               type="radio"
               variant={"primary"}
               name="factory"
@@ -53,13 +60,13 @@ function Keramika(params) {
                 return (
                   <ToggleButton
                     key={idx}
-                    id={`rw${i}-${idx}`}
+                    id={`rsk${i}-${idx}`}
                     type="radio"
                     variant={"primary"}
-                    name="width"
+                    name="size"
                     value={val}
                     data-type="size"
-                    checked={1 === val}
+                    checked={size === val}
                     onChange={(e) => {
                       handleBtn(e);
                     }}

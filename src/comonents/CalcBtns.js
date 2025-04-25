@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { ButtonGroup, ToggleButton } from "react-bootstrap";
-import ModalBridge from "../ModalBridge";
-import { b20, b25, b35, b50, D400, D600 } from "../../files/const";
+import ModalBridge from "./ModalBridge";
 
-function CalcBtns({ handle, data = [], name, curParam, i = 0, disabled = [] }) {
+function CalcBtns({ handle, data, name, curParam, i = 0, disabled = [] }) {
   return (
     <ButtonGroup className="w-100">
       {data.map((value, idx) => {

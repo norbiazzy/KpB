@@ -20,7 +20,7 @@ import CalcMinus from "../CalcMinus.js";
 import Glay from "./Glay.js";
 import Result from "../Result.js";
 import Logictics from "../Logistics/Logictics.js";
-import CalcBtns from "./CalcBtns.js";
+import CalcBtns from "../CalcBtns.js";
 
 const radiosDensity = ["D400", "D500", "D600"];
 
@@ -122,6 +122,7 @@ function Bonolit(params) {
     return step;
   };
   const addRowBlock = () => {
+    debugger
     let resRow = {
       density: density,
       lenght: lenght,
@@ -133,6 +134,7 @@ function Bonolit(params) {
         priceView * (lenght === "500" ? dataQuanity.thing : dataQuanity.volume),
         2
       ),
+      step: step,
       percent: percent,
       volume: dataQuanity.volume,
       pallet: dataQuanity.pallet,

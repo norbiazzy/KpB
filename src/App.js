@@ -19,6 +19,7 @@ import {
   ANY,
   cutEnd,
 } from "./files/const";
+import Any from "./comonents/Any/Any";
 
 function App() {
   const [typeCalc, setTypeCalc] = useState(BLOCK);
@@ -427,7 +428,7 @@ function App() {
         )}
 
         {typeCalc === KERAMIKA ? <Keramika /> : ""}
-        {typeCalc === ANY ? "" : ""}
+        {typeCalc === ANY ? <Any /> : ""}
         {/* <div>
           <InputGroup className="mb-3">
             <InputGroup.Text id="formData-volume">м3</InputGroup.Text>
