@@ -267,12 +267,14 @@ function Bonolit(params) {
         name="density"
         curParam={density}
         handle={handleParam}
+        className={'mb-2'}
       />
       <CalcBtns
         data={radiosLenght}
         name="lenght"
         curParam={lenght}
         handle={handleParam}
+        className={'mb-2'}
       />
       {radiosWidth.map((row, i) => (
         <CalcBtns
@@ -281,6 +283,7 @@ function Bonolit(params) {
           curParam={width}
           i={i}
           handle={handleParam}
+          className={'mb-1'}
         />
       ))}
       <CalcBtns
@@ -288,6 +291,7 @@ function Bonolit(params) {
         name="height"
         curParam={height}
         handle={handleParam}
+        className={'mb-2'}
       />
       <CalcBtns
         data={radiosStrength}
@@ -295,12 +299,14 @@ function Bonolit(params) {
         curParam={strength}
         handle={handleParam}
         disabled={desableStrength}
+        className={'mb-2'}
       />
       <CalcBtns
         data={radiosFactory}
         name="factory"
         curParam={factory}
         handle={handleParam}
+        className={'mb-2'}
       />
       <Quantity
         handleInputQuantity={handleInputQuantity}

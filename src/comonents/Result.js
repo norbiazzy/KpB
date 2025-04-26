@@ -44,18 +44,16 @@ function Result({
     if (glayData) {
       textGlay =
         glayData.glay25 > 0
-          ? `Клей bonolit 25 кг - ${glayData.glay25} шт * ${
-              glayData.glay25Price
-            } ₽ - ${cutEnd(glayData.glay25 * glayData.glay25Price, float)} ₽`
+          ? `Клей bonolit 25 кг - ${glayData.glay25} шт * ${glayData.glay25Price
+          } ₽ - ${cutEnd(glayData.glay25 * glayData.glay25Price, float)} ₽`
           : "";
       textGlayFoam =
         glayData.glayFoam > 0
-          ? `Клей-пена bonolit Формула-тепла - ${glayData.glayFoam} шт * ${
-              glayData.glayFoamPrice
-            } ₽ - ${cutEnd(
-              glayData.glayFoam * glayData.glayFoamPrice,
-              float
-            )} ₽`
+          ? `Клей-пена bonolit Формула-тепла - ${glayData.glayFoam} шт * ${glayData.glayFoamPrice
+          } ₽ - ${cutEnd(
+            glayData.glayFoam * glayData.glayFoamPrice,
+            float
+          )} ₽`
           : "";
     }
     return textGlay + textGlayFoam;
@@ -111,18 +109,18 @@ function Result({
         glayData.glay25Price * glayData.glay25 +
         glayData.glayFoamPrice * glayData.glayFoam;
     }
-    if (vehiclesPrice) {
+    // if (vehiclesPrice) {
       vehiclesPrice =
         dataVehicles.hitchCount * dataVehicles.hitchPrice +
         dataVehicles.manipulatorCount * dataVehicles.manipulatorPrice +
         dataVehicles.truckCount * dataVehicles.truckPrice +
         dataVehicles.unloadingCount * dataVehicles.unloadingPrice;
-    }
+    // }
     total += glayPrice + vehiclesPrice;
     return total ? <li>Итого: {cutEnd(total, 2)} ₽</li> : "";
   };
 
-  const initVariant = () => {};
+  const initVariant = () => { };
 
   return (
     <>
