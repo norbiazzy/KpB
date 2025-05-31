@@ -72,9 +72,9 @@ function Keramika(params) {
   const setSide = (size) => {
     switch (size) {
       case '51':
-        setLenght('250')
-        setWidth('510')
-        setHeight('219')
+        
+        
+        
         break;
       case '44':
         setLenght('250')
@@ -127,9 +127,6 @@ function Keramika(params) {
     const { name, value } = e.target;
     calcQuantity(name, value);
   };
-
-
-
 
   return (
     <div>
