@@ -234,15 +234,15 @@ export const PRICEBLOCK = {
     },
     D500: {
       [b20]: { wall: 0, partition: 0, 50: 0 },
-      [b25]: { wall: 5088, partition: 5040, 50: 6432 },
-      [b35]: { wall: 4944, partition: 4944, 50: 6432 },
+      [b25]: { wall: 4944, partition: 4944, 50: 6432 },
+      [b35]: { wall: 5088, partition: 5088, 50: 6432 },
       [b50]: { wall: 0, partition: 0, 50: 0 },
     },
     D600: {
       [b20]: { wall: 0, partition: 0, 50: 0 },
       [b25]: { wall: 0, partition: 0, 50: 0 },
-      [b35]: { wall: 5040, partition: 5040, 50: 0 },
-      [b50]: { wall: 4944, partition: 4944, 50: 0 },
+      [b35]: { wall: 4944, partition: 4944, 50: 0 },
+      [b50]: { wall: 5040, partition: 5040, 50: 0 },
     },
   },
   MY: {
@@ -254,15 +254,15 @@ export const PRICEBLOCK = {
     },
     D500: {
       [b20]: { wall: 0, partition: 0, 50: 0 },
-      [b25]: { wall: 5040, partition: 5040, 50: 6432 },
-      [b35]: { wall: 4944, partition: 4944, 50: 6432 },
+      [b25]: { wall: 4944, partition: 4944, 50: 6432 },
+      [b35]: { wall: 5040, partition: 5040, 50: 6432 },
       [b50]: { wall: 0, partition: 0, 50: 0 },
     },
     D600: {
       [b20]: { wall: 0, partition: 0, 50: 0 },
       [b25]: { wall: 0, partition: 0, 50: 0 },
-      [b35]: { wall: 5040, partition: 5040, 50: 0 },
-      [b50]: { wall: 4944, partition: 4944, 50: 0 },
+      [b35]: { wall: 4944, partition: 4944, 50: 0 },
+      [b50]: { wall: 5040, partition: 5040, 50: 0 },
     },
   },
 };
