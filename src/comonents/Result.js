@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, ButtonGroup, ToggleButton } from "react-bootstrap";
 import RowResult from "./RowResult";
-import { copyResult, cutEnd } from "../files/const";
+import { copyResult, cutEnd, numberFormat } from "../files/const";
 
 function Result({
   result,
@@ -12,7 +12,6 @@ function Result({
   cleanResult,
 }) {
   const [variant, setVariant] = useState(1);
-
   const printVehicles = () => {
     let rows = ["truck", "manipulator", "hitch", "unloading"].map(
       (vehicles, i) => {
@@ -22,13 +21,13 @@ function Result({
         if (count === 1 && price > 0)
           return (
             <li key={i}>
-              {vehicles === "truck" ? "Доставка:" : text} {count * price} ₽
+              {vehicles === "truck" ? "Доставка:" : text} {numberFormat.format(count * price)} ₽
             </li>
           );
         else if (count > 1 && price > 0) {
           return (
             <li key={i}>
-              {text} {count} шт * {price} ₽ - {count * price} ₽
+              {text} {count} шт * {numberFormat.format(price)} ₽ - {numberFormat.format(count * price)} ₽
             </li>
           );
         }
@@ -45,15 +44,15 @@ function Result({
       textGlay =
         glayData.glay25 > 0
           ? `Клей bonolit 25 кг - ${glayData.glay25} шт * ${glayData.glay25Price
-          } ₽ - ${cutEnd(glayData.glay25 * glayData.glay25Price, float)} ₽`
+          } ₽ - ${numberFormat.format(cutEnd(glayData.glay25 * glayData.glay25Price, float))} ₽`
           : "";
       textGlayFoam =
         glayData.glayFoam > 0
           ? `Клей-пена bonolit Формула-тепла - ${glayData.glayFoam} шт * ${glayData.glayFoamPrice
-          } ₽ - ${cutEnd(
+          } ₽ - ${numberFormat.format(cutEnd(
             glayData.glayFoam * glayData.glayFoamPrice,
             float
-          )} ₽`
+          ))} ₽`
           : "";
     }
     return textGlay + textGlayFoam;
@@ -110,14 +109,14 @@ function Result({
         glayData.glayFoamPrice * glayData.glayFoam;
     }
     // if (vehiclesPrice) {
-      vehiclesPrice =
-        dataVehicles.hitchCount * dataVehicles.hitchPrice +
-        dataVehicles.manipulatorCount * dataVehicles.manipulatorPrice +
-        dataVehicles.truckCount * dataVehicles.truckPrice +
-        dataVehicles.unloadingCount * dataVehicles.unloadingPrice;
+    vehiclesPrice =
+      dataVehicles.hitchCount * dataVehicles.hitchPrice +
+      dataVehicles.manipulatorCount * dataVehicles.manipulatorPrice +
+      dataVehicles.truckCount * dataVehicles.truckPrice +
+      dataVehicles.unloadingCount * dataVehicles.unloadingPrice;
     // }
     total += glayPrice + vehiclesPrice;
-    return total ? <li>Итого: {cutEnd(total, 2)} ₽</li> : "";
+    return total ? <li>Итого: {numberFormat.format(cutEnd(total, 2))} ₽</li> : "";
   };
 
   const initVariant = () => { };
@@ -126,7 +125,7 @@ function Result({
     <>
       <div className="mb-2">
         <ButtonGroup className="w-100">
-          {["Полный", "Мин", "3 строки", "Вход"].map((val, idx) => (
+          {["Полный", "Мин", "3 строки", "Полный+", "Полный++"].map((val, idx) => (
             <ToggleButton
               key={idx}
               id={`rvVariant-${idx}`}

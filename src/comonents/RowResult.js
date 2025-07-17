@@ -7,7 +7,7 @@ import {
   InputGroup,
   useAccordionButton,
 } from "react-bootstrap";
-import { cutEnd, D500 } from "../files/const";
+import { cutEnd, D500, numberFormat } from "../files/const";
 
 function CustomToggle({ children, eventKey }) {
   const decoratedOnClick = useAccordionButton(eventKey, () =>
@@ -47,7 +47,7 @@ function RowResult(params) {
               F100 ГОСТ 31360
             </li>
             <li key={key ** 5}>
-              {i.volume} м3 * {i.priceView} ₽ - {i.priceVxV} ₽
+              {i.volume} м3 * {numberFormat.format(i.priceView)} ₽ - {numberFormat.format(i.priceVxV)} ₽
             </li>
           </>
         );
@@ -55,7 +55,7 @@ function RowResult(params) {
         string = (
           <li key={key ** 6}>
             {i.density} {i.lenght}x{i.width}x{i.height} {i.strength} -{" "}
-            {i.volume} м3 * {i.priceView} ₽ - {i.priceVxV} ₽
+            {i.volume} м3 * {numberFormat.format(i.priceView)} ₽ - {numberFormat.format(i.priceVxV)} ₽
           </li>
         );
       } else if (variant === 2) {
@@ -68,7 +68,7 @@ function RowResult(params) {
               {cutEnd(i.volume / i.step, 2)} под. по {i.step} м3 ({i.thing} шт)
             </li>
             <li className="mb-0" key={key ** 3}>
-              {i.volume} м3 * {i.priceView} ₽ - {i.priceVxV} ₽
+              {i.volume} м3 * {numberFormat.format(i.priceView)} ₽ - {numberFormat.format(i.priceVxV)} ₽
             </li>
           </>
         );
@@ -76,24 +76,40 @@ function RowResult(params) {
         string = (
           <>
             <li className="mb-0" key={key ** 1}>
-              {i.density} {i.lenght}x{i.width}x{i.height} {i.strength}
+              Bonolit {i.density} {i.lenght}x{i.width}x{i.height} {i.strength}{" "}
+              F100 ГОСТ 31360
             </li>
             <li className="mb-0" key={key ** 2}>
-              {i.pallet} под. по {i.step} м3 ({i.thing} шт)
+              {cutEnd(i.volume / i.step, 2)} под. по {i.step} м3 ({i.thing} шт)
             </li>
             <li className="mb-0" key={key ** 3}>
-              {i.volume} м3 * {i.priceView} ₽ - {i.priceVxV} ₽
+              {i.volume} м3 * {numberFormat.format(i.priceView)} ₽ - {numberFormat.format(i.priceVxV)} ₽
             </li>
           </>
         );
       } else if (variant === 4) {
-        string = <></>;
+        string = (
+          <>
+            <li className="mb-0" key={key ** 1}>
+              Bonolit {i.density} {i.lenght}x{i.width}x{i.height}
+            </li>
+            <li className="mb-0" key={key ** 1}>
+              {i.strength}{" "}F100 ГОСТ 31360
+            </li>
+            <li className="mb-0" key={key ** 2}>
+              {cutEnd(i.volume / i.step, 2)} под. по {i.step} м3 ({i.thing} шт)
+            </li>
+            <li className="mb-0" key={key ** 3}>
+              {i.volume} м3 * {numberFormat.format(i.priceView)} ₽ - {numberFormat.format(i.priceVxV)} ₽
+            </li>
+          </>
+        );
       }
     } else {
       string = (
         <li key={key}>
           U-блок {D500} {i.lenght}x{i.width}x{i.height} - {i.thing} шт *{" "}
-          {i.priceView} ₽ - {i.priceVxV} ₽
+          {numberFormat.format(i.priceView)} ₽ - {numberFormat.format(i.priceVxV)} ₽
         </li>
       );
     }

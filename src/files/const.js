@@ -14,6 +14,9 @@ export const ANY = "ANY";
 
 export const GJEL = "GJEL";
 export const POROTERM = "POROTERM";
+
+const options = { style: "decimal", currency: "RUB" };
+export const numberFormat = new Intl.NumberFormat("ru-RU", options);
 export const sizes = {
   8: {
     GJEL: {
