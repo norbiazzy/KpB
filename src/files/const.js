@@ -17,7 +17,26 @@ export const POROTERM = "POROTERM";
 
 const options = { style: "decimal", currency: "RUB" };
 export const numberFormat = new Intl.NumberFormat("ru-RU", options);
-export const sizes = {
+export const PRICEKERAMICA = {
+
+  '2.1': {
+    GJEL: {
+      perPal: 336,
+      perCar: 5040,
+      price: 0,
+      lenght: '250',
+      width: '140',
+      height: '120',
+    },
+    POROTERM: {
+      perPal: 280,
+      perCar: 5040,
+      price: 0,
+      lenght: '250',
+      width: '120',
+      height: '140',
+    },
+  },
   8: {
     GJEL: {
       perPal: 72,
@@ -31,8 +50,8 @@ export const sizes = {
       perPal: 120,
       perCar: 2640,
       price: 83.61,
-      lenght: '250',
-      width: '510',
+      lenght: '510',
+      width: '80',
       height: '219',
     },
   },
@@ -194,22 +213,22 @@ export const PRICEGLORY = {
 export const PRICEBLOCK = {
   SK: {
     D400: {
-      [b20]: { wall: 7440, partition: 0, 50: 0 },
-      [b25]: { wall: 7440, partition: 0, 50: 0 },
+      [b20]: { wall: 5376, partition: 0, 50: 0 },
+      [b25]: { wall: 5376, partition: 0, 50: 0 },
       [b35]: { wall: 0, partition: 0, 50: 0 },
       [b50]: { wall: 0, partition: 0, 50: 0 },
     },
     D500: {
       [b20]: { wall: 0, partition: 0, 50: 0 },
-      [b25]: { wall: 5040, partition: 5040, 50: 7440 },
-      [b35]: { wall: 5184, partition: 5184, 50: 7440 },
+      [b25]: { wall: 4848, partition: 4848, 50: 0 },
+      [b35]: { wall: 4992, partition: 4992, 50: 0 },
       [b50]: { wall: 0, partition: 0, 50: 0 },
     },
     D600: {
       [b20]: { wall: 0, partition: 0, 50: 0 },
       [b25]: { wall: 0, partition: 0, 50: 0 },
-      [b35]: { wall: 5040, partition: 5040, 50: 0 },
-      [b50]: { wall: 5184, partition: 5184, 50: 0 },
+      [b35]: { wall: 4848, partition: 4848, 50: 0 },
+      [b50]: { wall: 4992, partition: 4992, 50: 0 },
     },
     step: {
       600400250: 2.16,
@@ -230,42 +249,42 @@ export const PRICEBLOCK = {
   },
   DZGI: {
     D400: {
-      [b20]: { wall: 5568, partition: 0, 50: 0 },
-      [b25]: { wall: 5568, partition: 0, 50: 0 },
+      [b20]: { wall: 5280, partition: 0, 50: 0 },
+      [b25]: { wall: 5280, partition: 0, 50: 0 },
       [b35]: { wall: 0, partition: 0, 50: 0 },
       [b50]: { wall: 0, partition: 0, 50: 0 },
     },
     D500: {
       [b20]: { wall: 0, partition: 0, 50: 0 },
-      [b25]: { wall: 4944, partition: 4944, 50: 6432 },
-      [b35]: { wall: 5088, partition: 5088, 50: 6432 },
+      [b25]: { wall: 4896, partition: 4896, 50: 6240 },
+      [b35]: { wall: 4752, partition: 4752, 50: 6240 },
       [b50]: { wall: 0, partition: 0, 50: 0 },
     },
     D600: {
       [b20]: { wall: 0, partition: 0, 50: 0 },
       [b25]: { wall: 0, partition: 0, 50: 0 },
-      [b35]: { wall: 4944, partition: 4944, 50: 0 },
-      [b50]: { wall: 5040, partition: 5040, 50: 0 },
+      [b35]: { wall: 4896, partition: 4896, 50: 0 },
+      [b50]: { wall: 4752, partition: 4752, 50: 0 },
     },
   },
   MY: {
     D400: {
-      [b20]: { wall: 5568, partition: 0, 50: 0 },
-      [b25]: { wall: 5568, partition: 0, 50: 0 },
+      [b20]: { wall: 5280, partition: 0, 50: 0 },
+      [b25]: { wall: 5280, partition: 0, 50: 0 },
       [b35]: { wall: 0, partition: 0, 50: 0 },
       [b50]: { wall: 0, partition: 0, 50: 0 },
     },
     D500: {
       [b20]: { wall: 0, partition: 0, 50: 0 },
-      [b25]: { wall: 4944, partition: 4944, 50: 6432 },
-      [b35]: { wall: 5040, partition: 5040, 50: 6432 },
+      [b25]: { wall: 4656, partition: 4656, 50: 6144 },
+      [b35]: { wall: 4800, partition: 4800, 50: 6144 },
       [b50]: { wall: 0, partition: 0, 50: 0 },
     },
     D600: {
       [b20]: { wall: 0, partition: 0, 50: 0 },
       [b25]: { wall: 0, partition: 0, 50: 0 },
-      [b35]: { wall: 4944, partition: 4944, 50: 0 },
-      [b50]: { wall: 5040, partition: 5040, 50: 0 },
+      [b35]: { wall: 4656, partition: 4656, 50: 0 },
+      [b50]: { wall: 4800, partition: 4800, 50: 0 },
     },
   },
 };

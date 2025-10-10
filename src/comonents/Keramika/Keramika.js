@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { cutEnd, GJEL, POROTERM, sizes } from "../../files/const";
-import { ButtonGroup, ToggleButton } from "react-bootstrap";
+import { cutEnd, GJEL, POROTERM, PRICEKERAMICA, sizes } from "../../files/const";
+import { Button, ButtonGroup, ToggleButton } from "react-bootstrap";
 import CalcBtns from "../CalcBtns";
 import Quantity from "../Quantity";
+import CalcMinus from "../CalcMinus";
 
 const radiosSize = [
   ["51", "44", "38"],
-  ["38т", "25", "20"],
+  ["38t", "25", "20"],
   ["12", "8", "2.1"],
 ];
 const radiosFactory = [
@@ -20,17 +21,23 @@ function Keramika(params) {
   const [lenght, setLenght] = useState("250");
   const [width, setWidth] = useState("380");
   const [height, setHeight] = useState("219");
+  const [step, setStep] = useState("48");
+  const [float, setFloat] = useState(0);
+  const [percent, setPercent] = useState(0.93);
+  const [priceSrc, setPriceSrc] = useState(
+    PRICEKERAMICA[size][factory]['price']
+  );
   const [formData, setFormData] = useState({});
+  const [priceView, setPriceView] = useState(cutEnd(priceSrc * percent, float));
   const [dataQuanity, setDataQuanity] = useState({
     volume: 0,
     thing: 0,
     pallet: 0,
   });
 
-  const calcStep = () => { };
+
 
   const calcQuantity = (name, value) => {
-    let step = calcStep();
     if (name === "volume") {
       let thing =
         (((((value / +lenght) * 1000) / +width) * 1000) / +height) * 1000;
@@ -65,21 +72,23 @@ function Keramika(params) {
   };
   const handleBtn = (e) => {
     const { name, value } = e.target;
+    debugger
     if (name === "factory") setFactory(value);
     if (name === "size") setSize(value);
-    calcStep();
   };
   const setSide = (size) => {
     switch (size) {
       case '51':
-        
-        
-        
+        setLenght('250')
+        setWidth('510')
+        setHeight('219')
+        setStep('48')
         break;
       case '44':
         setLenght('250')
         setWidth('440')
         setHeight('219')
+        setStep('48')
         break;
       case '38':
         setLenght('250')
@@ -121,12 +130,43 @@ function Keramika(params) {
         break;
     }
   }
+  const handleInputChangePrice = (e) => {
+    debugger
+    e.preventDefault();
+    let price = e.target.value;
+    setPriceSrc(price);
+    setPriceView(cutEnd(price * percent, float));
+  };
 
   const handleInputQuantity = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
     calcQuantity(name, value);
   };
+
+  const addRowBlock = () => {
+    // debugger
+    // let resRow = {
+    //   density: density,
+    //   lenght: lenght,
+    //   width: width,
+    //   height: height,
+    //   priceSrc: priceSrc,
+    //   priceView: priceView,
+    //   priceVxV: cutEnd(
+    //     priceView * (lenght === "500" ? dataQuanity.thing : dataQuanity.volume),
+    //     2
+    //   ),
+    //   step: step,
+    //   percent: percent,
+    //   volume: dataQuanity.volume,
+    //   pallet: dataQuanity.pallet,
+    //   thing: dataQuanity.thing,
+    //   strength: strength,
+    // };
+    // setResult({ ...result, rows: [...result.rows, resRow] });
+  };
+
 
   return (
     <div>
@@ -180,6 +220,19 @@ function Keramika(params) {
         handleInputQuantity={handleInputQuantity}
         dataQuanity={dataQuanity}
       />
+      <CalcMinus
+        priceSrc={priceSrc}
+        handleInputChangePrice={handleInputChangePrice}
+        setFloat={setFloat}
+        float={float}
+        setPercent={setPercent}
+        percent={percent}
+      />
+      <div className="mb-3">
+        <Button className="w-100" variant="success" onClick={addRowBlock}>
+          Добавить
+        </Button>
+      </div>
     </div>
   );
 }
