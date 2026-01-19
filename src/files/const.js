@@ -213,22 +213,22 @@ export const PRICEGLORY = {
 export const PRICEBLOCK = {
   SK: {
     D400: {
-      [b20]: { wall: 5376, partition: 0, 50: 0 },
-      [b25]: { wall: 5376, partition: 0, 50: 0 },
+      [b20]: { wall: 5760, partition: 0, 50: 0 },
+      [b25]: { wall: 5760, partition: 0, 50: 0 },
       [b35]: { wall: 0, partition: 0, 50: 0 },
       [b50]: { wall: 0, partition: 0, 50: 0 },
     },
     D500: {
       [b20]: { wall: 0, partition: 0, 50: 0 },
-      [b25]: { wall: 4848, partition: 4848, 50: 0 },
-      [b35]: { wall: 4992, partition: 4992, 50: 0 },
+      [b25]: { wall: 5136, partition: 5223, 50: 0 },
+      [b35]: { wall: 5280, partition: 5376, 50: 0 },
       [b50]: { wall: 0, partition: 0, 50: 0 },
     },
     D600: {
       [b20]: { wall: 0, partition: 0, 50: 0 },
       [b25]: { wall: 0, partition: 0, 50: 0 },
-      [b35]: { wall: 4848, partition: 4848, 50: 0 },
-      [b50]: { wall: 4992, partition: 4992, 50: 0 },
+      [b35]: { wall: 5232, partition: 5328, 50: 0 },
+      [b50]: { wall: 5376, partition: 5472, 50: 0 },
     },
     step: {
       600400250: 2.16,
@@ -249,42 +249,42 @@ export const PRICEBLOCK = {
   },
   DZGI: {
     D400: {
-      [b20]: { wall: 5280, partition: 0, 50: 0 },
-      [b25]: { wall: 5280, partition: 0, 50: 0 },
+      [b20]: { wall: 5760, partition: 0, 50: 0 },
+      [b25]: { wall: 5760, partition: 0, 50: 0 },
       [b35]: { wall: 0, partition: 0, 50: 0 },
       [b50]: { wall: 0, partition: 0, 50: 0 },
     },
     D500: {
       [b20]: { wall: 0, partition: 0, 50: 0 },
-      [b25]: { wall: 4752, partition: 4752, 50: 6240 },
-      [b35]: { wall: 4896, partition: 4896, 50: 6240 },
+      [b25]: { wall: 5136, partition: 5223, 50: 6336 },
+      [b35]: { wall: 5280, partition: 5376, 50: 6336 },
       [b50]: { wall: 0, partition: 0, 50: 0 },
     },
     D600: {
       [b20]: { wall: 0, partition: 0, 50: 0 },
       [b25]: { wall: 0, partition: 0, 50: 0 },
-      [b35]: { wall: 4752, partition: 4752, 50: 0 },
-      [b50]: { wall: 4896, partition: 4896, 50: 0 },
+      [b35]: { wall: 5232, partition: 5328, 50: 0 },
+      [b50]: { wall: 5376, partition: 5472, 50: 0 },
     },
   },
   MY: {
     D400: {
-      [b20]: { wall: 5280, partition: 0, 50: 0 },
-      [b25]: { wall: 5280, partition: 0, 50: 0 },
+      [b20]: { wall: 5760, partition: 0, 50: 0 },
+      [b25]: { wall: 5760, partition: 0, 50: 0 },
       [b35]: { wall: 0, partition: 0, 50: 0 },
       [b50]: { wall: 0, partition: 0, 50: 0 },
     },
     D500: {
       [b20]: { wall: 0, partition: 0, 50: 0 },
-      [b25]: { wall: 4656, partition: 4656, 50: 6144 },
-      [b35]: { wall: 4800, partition: 4800, 50: 6144 },
+      [b25]: { wall: 5136, partition: 5223, 50: 6336 },
+      [b35]: { wall: 5280, partition: 5376, 50: 6336 },
       [b50]: { wall: 0, partition: 0, 50: 0 },
     },
     D600: {
       [b20]: { wall: 0, partition: 0, 50: 0 },
       [b25]: { wall: 0, partition: 0, 50: 0 },
-      [b35]: { wall: 4656, partition: 4656, 50: 0 },
-      [b50]: { wall: 4800, partition: 4800, 50: 0 },
+      [b35]: { wall: 5232, partition: 5328, 50: 0 },
+      [b50]: { wall: 5376, partition: 5472, 50: 0 },
     },
   },
 };
