@@ -126,7 +126,7 @@ function Result({
     <>
       <div className="mb-2">
         <ButtonGroup className="w-100">
-          {["Полный", "Мин", "3 строки", "Полный+", "Полный++"].map((val, idx) => (
+          {["Полный", "Мин", "3 строки", "Полный+", "Полный++", 'min+'].map((val, idx) => (
             <ToggleButton
               key={idx}
               id={`rvVariant-${idx}`}

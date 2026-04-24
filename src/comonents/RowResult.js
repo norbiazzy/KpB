@@ -5,6 +5,7 @@ import {
   Card,
   Form,
   InputGroup,
+  ListGroup,
   useAccordionButton,
 } from "react-bootstrap";
 import { cutEnd, D500, DZGI, numberFormat, SK } from "../files/const";
@@ -43,7 +44,7 @@ function RowResult(params) {
         string = (
           <>
             <li key={key ** 4}>
-              Блок Bonolit{factory===SK?"":" project"} {i.density} {i.lenght}*{i.width}*{i.height} {i.strength}{" "}
+              Блок Bonolit{factory === SK ? "" : " project"} {i.density} {i.lenght}*{i.width}*{i.height} {i.strength}{" "}
               F100 ГОСТ 31360
             </li>
             <li key={key ** 5}>
@@ -76,7 +77,7 @@ function RowResult(params) {
         string = (
           <>
             <li className="mb-0" key={key ** 1}>
-              Блок Bonolit {i.density} {i.lenght}*{i.width}*{i.height} {i.strength}{" "}
+              Блок Bonolit{factory === SK ? "" : " project"} {i.density} {i.lenght}*{i.width}*{i.height} {i.strength}{" "}
               F100 ГОСТ 31360
             </li>
             <li className="mb-0" key={key ** 2}>
@@ -91,10 +92,24 @@ function RowResult(params) {
         string = (
           <>
             <li className="mb-0" key={key ** 1}>
-              Блок Bonolit { } {i.density} {i.lenght}*{i.width}*{i.height}
+              Блок Bonolit{factory === SK ? "" : " project"} {i.density} {i.lenght}*{i.width}*{i.height}
             </li>
             <li className="mb-0" key={key ** 1}>
               {i.strength}{" "}F100 ГОСТ 31360
+            </li>
+            <li className="mb-0" key={key ** 2}>
+              {cutEnd(i.volume / i.step, 2)} под. по {i.step} м3 ({i.thing} шт)
+            </li>
+            <li className="mb-0" key={key ** 3}>
+              {i.volume} м3 * {numberFormat.format(i.priceView)} ₽ - {numberFormat.format(i.priceVxV)} ₽
+            </li>
+          </>
+        );
+      } else if (variant === 5) {
+        string = (
+          <>
+            <li className="mb-0" key={key ** 1}>
+              Блок Bonolit{factory === SK ? "" : " project"} {i.density} {i.lenght}*{i.width}*{i.height} {i.strength}
             </li>
             <li className="mb-0" key={key ** 2}>
               {cutEnd(i.volume / i.step, 2)} под. по {i.step} м3 ({i.thing} шт)
