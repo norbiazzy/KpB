@@ -10,6 +10,7 @@ function Result({
   dataVehicles = {},
   float,
   cleanResult,
+  factory
 }) {
   const [variant, setVariant] = useState(1);
   const printVehicles = () => {
@@ -144,6 +145,7 @@ function Result({
       <div className="text-start mb-2">
         <RowResult
           result={result}
+          factory={factory}
           variant={variant}
           copy={true}
           handleInputEditRow={handleInputEditRow}

@@ -7,7 +7,7 @@ import {
   InputGroup,
   useAccordionButton,
 } from "react-bootstrap";
-import { cutEnd, D500, numberFormat } from "../files/const";
+import { cutEnd, D500, DZGI, numberFormat, SK } from "../files/const";
 
 function CustomToggle({ children, eventKey }) {
   const decoratedOnClick = useAccordionButton(eventKey, () =>
@@ -31,7 +31,7 @@ function CustomToggle({ children, eventKey }) {
 }
 
 function RowResult(params) {
-  let { result, copy, variant, handleInputEditRow } = params;
+  let { result, copy, variant, handleInputEditRow, factory } = params;
 
   let res = "";
   res = result.rows.map((i, key) => {
@@ -43,7 +43,7 @@ function RowResult(params) {
         string = (
           <>
             <li key={key ** 4}>
-              Bonolit {i.density} {i.lenght}x{i.width}x{i.height} {i.strength}{" "}
+              Блок Bonolit{factory===SK?"":" project"} {i.density} {i.lenght}*{i.width}*{i.height} {i.strength}{" "}
               F100 ГОСТ 31360
             </li>
             <li key={key ** 5}>
@@ -54,7 +54,7 @@ function RowResult(params) {
       } else if (variant === 1) {
         string = (
           <li key={key ** 6}>
-            {i.density} {i.lenght}x{i.width}x{i.height} {i.strength} -{" "}
+            {i.density} {i.lenght}*{i.width}*{i.height} {i.strength} -{" "}
             {i.volume} м3 * {numberFormat.format(i.priceView)} ₽ - {numberFormat.format(i.priceVxV)} ₽
           </li>
         );
@@ -62,7 +62,7 @@ function RowResult(params) {
         string = (
           <>
             <li className="mb-0" key={key ** 1}>
-              {i.density} {i.lenght}x{i.width}x{i.height} {i.strength}
+              {i.density} {i.lenght}*{i.width}*{i.height} {i.strength}
             </li>
             <li className="mb-0" key={key ** 2}>
               {cutEnd(i.volume / i.step, 2)} под. по {i.step} м3 ({i.thing} шт)
@@ -76,7 +76,7 @@ function RowResult(params) {
         string = (
           <>
             <li className="mb-0" key={key ** 1}>
-              Bonolit {i.density} {i.lenght}x{i.width}x{i.height} {i.strength}{" "}
+              Блок Bonolit {i.density} {i.lenght}*{i.width}*{i.height} {i.strength}{" "}
               F100 ГОСТ 31360
             </li>
             <li className="mb-0" key={key ** 2}>
@@ -91,7 +91,7 @@ function RowResult(params) {
         string = (
           <>
             <li className="mb-0" key={key ** 1}>
-              Bonolit {i.density} {i.lenght}x{i.width}x{i.height}
+              Блок Bonolit { } {i.density} {i.lenght}*{i.width}*{i.height}
             </li>
             <li className="mb-0" key={key ** 1}>
               {i.strength}{" "}F100 ГОСТ 31360
@@ -108,7 +108,7 @@ function RowResult(params) {
     } else {
       string = (
         <li key={key}>
-          U-блок {D500} {i.lenght}x{i.width}x{i.height} - {i.thing} шт *{" "}
+          U-блок {D500} {i.lenght}*{i.width}*{i.height} - {i.thing} шт *{" "}
           {numberFormat.format(i.priceView)} ₽ - {numberFormat.format(i.priceVxV)} ₽
         </li>
       );

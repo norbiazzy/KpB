@@ -332,6 +332,7 @@ function Bonolit(params) {
       />
       <Result
         result={result}
+        factory={factory}
         setResult={setResult}
         glayData={glayData}
         dataVehicles={dataVehicles}
